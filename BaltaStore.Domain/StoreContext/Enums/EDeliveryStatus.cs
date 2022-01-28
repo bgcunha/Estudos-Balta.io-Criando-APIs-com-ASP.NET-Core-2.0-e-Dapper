@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BaltaStore.Domain.StoreContext.Enums
+﻿namespace BaltaStore.Domain.StoreContext.Enums
 {
     public enum EDeliveryStatus
     {  
