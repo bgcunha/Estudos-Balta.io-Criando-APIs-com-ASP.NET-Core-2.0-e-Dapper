@@ -11,8 +11,10 @@ namespace BaltaStore.Tests
         public void TestMethod1()
         {
             var name = new Name ( "Bruno", "Cunha" );
+            Document document = new Document("12345678911");
+            Email email = new Email("bruno@bruno.com");
 
-            var customer = new Customer( name,"12365478900", "bruno.gomes@gmail.com", "4335420000", "Rua A - Bandeirantes - Paraná 86360000");
+            var customer = new Customer( name, document, email, "4335420000");
 
             var order = new Order(customer);
             
