@@ -1,6 +1,6 @@
 namespace BaltaStore.Domain.StoreContext.Entities
 {
-    public class Product
+    public class Product : Entity
     {
         public Product(string title, string description, string image, decimal price, decimal quantity)
         {

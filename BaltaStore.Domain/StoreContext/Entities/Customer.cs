@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace BaltaStore.Domain.StoreContext.Entities
 {
-    public class Customer
+    public class Customer : Entity
     {
         private readonly IList<Address> _addresses;
 

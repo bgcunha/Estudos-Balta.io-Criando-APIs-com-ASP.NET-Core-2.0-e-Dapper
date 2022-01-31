@@ -25,12 +25,14 @@ namespace BaltaStore.Tests
             
             
 
-            order.AddItem( new OrderItem(mouse, 5));
-            order.AddItem( new OrderItem(tecldo, 5));
-            order.AddItem( new OrderItem(cadeira, 5));
-            order.AddItem( new OrderItem(impressora, 5));
-
+            //order.AddItem( new OrderItem(mouse, 5));
+            //order.AddItem( new OrderItem(tecldo, 5));
+            //order.AddItem( new OrderItem(cadeira, 5));
+            //order.AddItem( new OrderItem(impressora, 5));
+                  
             order.Place();
+
+            var valid = order.IsValid;
 
             order.Pay();
 

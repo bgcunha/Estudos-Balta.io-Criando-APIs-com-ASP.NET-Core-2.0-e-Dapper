@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace BaltaStore.Domain.StoreContext.Entities
 {
-    public class Order
+    public class Order : Entity
     {
         private readonly IList<OrderItem> _items;
         private readonly IList<Delivery> _deliveries;
@@ -35,10 +35,15 @@ namespace BaltaStore.Domain.StoreContext.Entities
 
         public void Place()
         {
+            if (_items.Count == 0)
+            {
+                AddNotification("Order", "Pedido sem itens.");
+                return;
+            }
+
             Number = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 8).ToUpper();
             CreateDate = DateTime.Now;
-            Status = EOrderStatus.Created;
-            //TODO - Gerar NF
+            Status = EOrderStatus.Created;           
 
         }
 
