@@ -26,10 +26,15 @@ namespace BaltaStore.Domain.StoreContext.Entities
         public IReadOnlyCollection<OrderItem> Items => _items.ToArray();
         public IReadOnlyCollection<Delivery> Deliveries => _deliveries.ToArray();
 
-        public void AddItem(OrderItem item)
+        public void AddItem(Product product, decimal quantity)
         {
-            //TODO - validar item
-            //TODO -- add no pedido
+            if (quantity > product.QuantityOnHand)
+            {
+                AddNotification("OrderItem", $"O produto {product.Title} não tem {quantity} itens no estoque");
+                return;
+            }
+
+            var item = new OrderItem(product, quantity);
             _items.Add(item);
         }
 

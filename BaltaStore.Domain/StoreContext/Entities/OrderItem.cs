@@ -9,7 +9,7 @@ namespace BaltaStore.Domain.StoreContext.Entities
             Quantity = quantity;
             Price = Product.Price;
 
-            if (product.QuantityOnHand < Quantity)
+            if (product.QuantityOnHand < quantity)
                 AddNotification("Quantity", "Quantidade insuficiente no estoque.");
         }
 
