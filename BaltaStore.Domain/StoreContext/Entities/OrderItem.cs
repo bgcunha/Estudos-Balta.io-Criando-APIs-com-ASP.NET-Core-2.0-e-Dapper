@@ -5,12 +5,17 @@ namespace BaltaStore.Domain.StoreContext.Entities
     {
         public OrderItem(Product product, decimal quantity)
         {
+            if (product.QuantityOnHand < quantity)
+            {
+                AddNotification("Quantity", "Quantidade insuficiente no estoque.");
+                return;
+            }
+
             Product = product;
             Quantity = quantity;
             Price = Product.Price;
 
-            if (product.QuantityOnHand < quantity)
-                AddNotification("Quantity", "Quantidade insuficiente no estoque.");
+            Product.DecreaseQuantity(quantity);
         }
 
         public Product Product { get; private set; }

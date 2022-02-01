@@ -5,7 +5,7 @@
         Created = 1,
         Paid = 2,
         Shipped = 3,
-        Cenceled = 4,
+        Canceled = 4,
         Delivered = 5
 
     }

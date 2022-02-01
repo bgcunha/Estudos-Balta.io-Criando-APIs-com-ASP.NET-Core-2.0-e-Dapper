@@ -26,7 +26,7 @@ namespace BaltaStore.Domain.StoreContext.Entities
         public void Cancel()
         {
             //Se o status estiver como entregue, não pode ser cancelado
-            Status = EDeliveryStatus.Cenceled;
+            Status = EDeliveryStatus.Canceled;
         }
     }
 }

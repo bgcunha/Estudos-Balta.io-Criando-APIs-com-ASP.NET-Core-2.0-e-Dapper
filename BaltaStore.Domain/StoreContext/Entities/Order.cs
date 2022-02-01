@@ -13,8 +13,8 @@ namespace BaltaStore.Domain.StoreContext.Entities
         {
             Customer = customer;
             //Number = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 8).ToUpper();
-            // CreateDate = DateTime.Now;
-            // Status = EOrderStatus.Created;
+            CreateDate = DateTime.Now;
+            Status = EOrderStatus.Created;
             _items = new List<OrderItem>();
             _deliveries = new List<Delivery>();
         }
@@ -47,9 +47,6 @@ namespace BaltaStore.Domain.StoreContext.Entities
             }
 
             Number = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 8).ToUpper();
-            CreateDate = DateTime.Now;
-            Status = EOrderStatus.Created;           
-
         }
 
         public void Pay()
@@ -61,18 +58,24 @@ namespace BaltaStore.Domain.StoreContext.Entities
         {
             // A cada 5 produtos é uma entrega
             var deliveries = new List<Delivery>();
-            deliveries.Add(new Delivery(DateTime.Now.AddDays(5)));
-            var count = 1;
 
-            // Quebra as entregas
-            foreach (var item in _items)
+            if (_items.Count > 5)
             {
-                if (count == 5)
+                var itens = 0;
+                // Quebra as entregas
+                foreach (var item in _items)
                 {
-                    count = 1;
-                    deliveries.Add(new Delivery(DateTime.Now.AddDays(5)));
+                    itens++;
+                    if (itens == 5)
+                    {
+                        itens = 0;
+                        deliveries.Add(new Delivery(DateTime.Now.AddDays(5)));
+                    }
                 }
-                count++;
+            }
+            else 
+            {
+                deliveries.Add(new Delivery(DateTime.Now.AddDays(5)));
             }
 
             // Envia todos as entregas
@@ -85,7 +88,7 @@ namespace BaltaStore.Domain.StoreContext.Entities
 
         public void Cancel()
         {
-            Status = EOrderStatus.Cenceled;
+            Status = EOrderStatus.Canceled;
             _deliveries.ToList().ForEach(x => x.Cancel());
         }
 
