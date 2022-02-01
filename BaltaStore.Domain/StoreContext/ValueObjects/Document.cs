@@ -1,9 +1,17 @@
-﻿namespace BaltaStore.Domain.StoreContext.ValueObjects
+﻿using BaltaStore.Domain.StoreContext.Entities;
+
+namespace BaltaStore.Domain.StoreContext.ValueObjects
 {
-    public class Document
+    public class Document : Entity
     {
         public Document(string number)
         {
+            if (number.Length != 11)
+            {
+                AddNotification("Document", "Cpf invalido");
+                return;
+            }
+
             Number = number;
         }
 
