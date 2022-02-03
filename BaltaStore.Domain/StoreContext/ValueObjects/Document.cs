@@ -1,4 +1,4 @@
-﻿using BaltaStore.Domain.StoreContext.Entities;
+﻿using BaltaStore.Shared.Entities;
 
 namespace BaltaStore.Domain.StoreContext.ValueObjects
 {

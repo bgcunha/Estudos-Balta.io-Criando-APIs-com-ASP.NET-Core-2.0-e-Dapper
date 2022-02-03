@@ -1,4 +1,6 @@
 
+using BaltaStore.Shared.Entities;
+
 namespace BaltaStore.Domain.StoreContext.Entities
 {
     public class OrderItem: Entity

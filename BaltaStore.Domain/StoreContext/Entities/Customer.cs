@@ -1,4 +1,5 @@
 using BaltaStore.Domain.StoreContext.ValueObjects;
+using BaltaStore.Shared.Entities;
 using System.Collections.Generic;
 using System.Linq;
 

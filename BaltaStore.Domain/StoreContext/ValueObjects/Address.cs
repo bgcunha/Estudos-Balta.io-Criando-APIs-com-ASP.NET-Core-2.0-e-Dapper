@@ -1,5 +1,5 @@
-﻿using BaltaStore.Domain.StoreContext.Entities;
-using BaltaStore.Domain.StoreContext.Enums;
+﻿using BaltaStore.Domain.StoreContext.Enums;
+using BaltaStore.Shared.Entities;
 
 namespace BaltaStore.Domain.StoreContext.ValueObjects
 {
