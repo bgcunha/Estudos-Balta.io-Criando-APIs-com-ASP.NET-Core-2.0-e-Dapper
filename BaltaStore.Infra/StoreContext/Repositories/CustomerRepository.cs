@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Linq;
 using BaltaStore.Domain.StoreContext.Entities;
 using BaltaStore.Domain.StoreContext.Repositories;
 using BaltaStore.Infra.StoreContext.DataContexts;
+using BaltaStore.Infra.StoreContext.Queries;
 using Dapper;
 
 namespace BaltaStore.Infra.StoreContext.Repositories
@@ -41,42 +40,6 @@ namespace BaltaStore.Infra.StoreContext.Repositories
                 .FirstOrDefault();
         }
 
-        //public IEnumerable<ListCustomerQueryResult> Get()
-        //{
-        //    return
-        //        _context
-        //        .Connection
-        //        .Query<ListCustomerQueryResult>("SELECT [Id], CONCAT([FirstName], ' ', [LastName]) AS [Name], [Document], [Email] FROM [Customer]", new { });
-        //}
-
-        //public GetCustomerQueryResult Get(Guid id)
-        //{
-        //    return
-        //        _context
-        //        .Connection
-        //        .Query<GetCustomerQueryResult>("SELECT [Id], CONCAT([FirstName], ' ', [LastName]) AS [Name], [Document], [Email] FROM [Customer] WHERE [Id]=@id", new { id = id })
-        //        .FirstOrDefault();
-        //}
-
-        //public CustomerOrdersCountResult GetCustomerOrdersCount(string document)
-        //{
-        //    return _context
-        //        .Connection
-        //        .Query<CustomerOrdersCountResult>(
-        //            "spGetCustomerOrdersCount",
-        //            new { Document = document },
-        //            commandType: CommandType.StoredProcedure)
-        //        .FirstOrDefault();
-        //}
-
-        //public IEnumerable<ListCustomerOrdersQueryResult> GetOrders(Guid id)
-        //{
-        //    return
-        //        _context
-        //        .Connection
-        //        .Query<ListCustomerOrdersQueryResult>("", new { id = id });
-        //}
-
         public void Save(Customer customer)
         {
             _context.Connection.Execute("spCreateCustomer",
@@ -108,5 +71,45 @@ namespace BaltaStore.Infra.StoreContext.Repositories
                 }, commandType: CommandType.StoredProcedure);
             }
         }
+
+        //public IEnumerable<ListCustomerQueryResult> Get()
+        //{
+        //    return
+        //        _context
+        //        .Connection
+        //        .Query<ListCustomerQueryResult>("SELECT [Id], CONCAT([FirstName], ' ', [LastName]) AS [Name], [Document], [Email] FROM [Customer]", new { });
+        //}
+
+
+
+        //public GetCustomerQueryResult Get(Guid id)
+        //{
+        //    return
+        //        _context
+        //        .Connection
+        //        .Query<GetCustomerQueryResult>("SELECT [Id], CONCAT([FirstName], ' ', [LastName]) AS [Name], [Document], [Email] FROM [Customer] WHERE [Id]=@id", new { id = id })
+        //        .FirstOrDefault();
+        //}
+
+        public CustomerOrdersCountResult GetCustomerOrdersCount(string document)
+        {
+            return _context
+                .Connection
+                .Query<CustomerOrdersCountResult>(
+                    "spGetCustomerOrdersCount",
+                    new { Document = document },
+                    commandType: CommandType.StoredProcedure)
+                .FirstOrDefault();
+        }
+
+        //public IEnumerable<ListCustomerOrdersQueryResult> GetOrders(Guid id)
+        //{
+        //    return
+        //        _context
+        //        .Connection
+        //        .Query<ListCustomerOrdersQueryResult>("", new { id = id });
+        //}
+
+
     }
 }
