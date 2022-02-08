@@ -1,4 +1,5 @@
-﻿using BaltaStore.Domain.StoreContext.Entities;
+﻿using BaltaStore.Domain.StoreContext.Commands.CustomerCommands.Inputs;
+using BaltaStore.Domain.StoreContext.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace BaltaStore.Api.Controllers
 
         [HttpPost]
         [Route("customers")]
-        public Customer Post([FromBody]Customer model)
+        public Customer Post([FromBody]CreateCustomerCommand command)
         {
             return null;
         }
@@ -45,9 +46,9 @@ namespace BaltaStore.Api.Controllers
         
         [HttpDelete]
         [Route("customers/{id:Guid}")]
-        public Customer Delete(Guid id)
+        public object Delete(Guid id)
         {
-            return null;
+            return new { message = "Removido com sucesso" };
         }
     }
 }
