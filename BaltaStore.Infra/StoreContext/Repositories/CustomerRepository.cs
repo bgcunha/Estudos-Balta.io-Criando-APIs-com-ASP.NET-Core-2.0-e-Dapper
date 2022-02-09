@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using BaltaStore.Domain.Queries;
 using BaltaStore.Domain.StoreContext.Entities;
+using BaltaStore.Domain.StoreContext.Queries;
 using BaltaStore.Domain.StoreContext.Repositories;
 using BaltaStore.Infra.StoreContext.DataContexts;
-using BaltaStore.Infra.StoreContext.Queries;
 using Dapper;
 
 namespace BaltaStore.Infra.StoreContext.Repositories

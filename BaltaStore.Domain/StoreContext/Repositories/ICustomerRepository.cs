@@ -1,6 +1,5 @@
-﻿using BaltaStore.Domain.Queries;
-using BaltaStore.Domain.StoreContext.Entities;
-using BaltaStore.Infra.StoreContext.Queries;
+﻿using BaltaStore.Domain.StoreContext.Entities;
+using BaltaStore.Domain.StoreContext.Queries;
 using System;
 using System.Collections.Generic;
 

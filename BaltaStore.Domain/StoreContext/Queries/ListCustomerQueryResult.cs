@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace BaltaStore.Domain.Queries
+namespace BaltaStore.Domain.StoreContext.Queries
 {
-    public class GetCustomerQueryResult
+    public class ListCustomerQueryResult
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

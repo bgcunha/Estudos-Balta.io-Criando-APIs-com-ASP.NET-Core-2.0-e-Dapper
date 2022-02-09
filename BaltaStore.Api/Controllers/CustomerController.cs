@@ -1,6 +1,6 @@
-﻿using BaltaStore.Domain.Queries;
-using BaltaStore.Domain.StoreContext.Commands.CustomerCommands.Inputs;
+﻿using BaltaStore.Domain.StoreContext.Commands.CustomerCommands.Inputs;
 using BaltaStore.Domain.StoreContext.Entities;
+using BaltaStore.Domain.StoreContext.Queries;
 using BaltaStore.Domain.StoreContext.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
