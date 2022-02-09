@@ -21,28 +21,36 @@ namespace BaltaStore.Api.Controllers
         }
 
         [HttpGet]
-        [Route("customers")]
+        [Route("v1/customers")]
         public IEnumerable<ListCustomerOrdersQueryResult> Get()
         {
             return _repository.Get();
         }
 
         [HttpGet]
-        [Route("customers/{id:Guid}")]
+        [Route("v1/customers/{id:Guid}")]
         public GetCustomerQueryResult GetById(Guid id)
+        {
+            return _repository.Get(id);
+        }
+        
+        [HttpGet]
+        //metodo não esta funcionando. Somente para simular versionamento de rota
+        [Route("v2/customers/{id:Guid}")]
+        public GetCustomerQueryResult GetByDocument(Guid id)
         {
             return _repository.Get(id);
         }
 
         [HttpGet]
-        [Route("customers/{id:Guid}/orders")]
+        [Route("v1/customers/{id:Guid}/orders")]
         public IEnumerable<ListCustomerOrdersQueryResult> GetOrders(Guid id)
         {
             return _repository.GetOrders(id);
         }
 
         [HttpPost]
-        [Route("customers")]
+        [Route("v1/customers")]
         public object Post([FromBody]CreateCustomerCommand command)
         {
             var result = (CreateCustomerCommand)_handler.Handle(command);
@@ -54,14 +62,14 @@ namespace BaltaStore.Api.Controllers
         }
 
         [HttpPut]
-        [Route("customers/{id:Guid}")]
+        [Route("v1/customers/{id:Guid}")]
         public Customer Put(Guid id)
         {
             return null;
         }
         
         [HttpDelete]
-        [Route("customers/{id:Guid}")]
+        [Route("v1/customers/{id:Guid}")]
         public object Delete(Guid id)
         {
             return new { message = "Removido com sucesso" };
