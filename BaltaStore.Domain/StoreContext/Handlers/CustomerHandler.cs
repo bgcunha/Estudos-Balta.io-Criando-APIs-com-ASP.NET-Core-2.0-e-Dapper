@@ -60,7 +60,7 @@ namespace BaltaStore.Domain.StoreContext.Handlers
             _emailService.Send(email.Address, "hello@balta.io", "Bem vindo", "Seja bem vindo ao Balta Store!");
 
             // Retornar o resultado para tela
-            return new CommandResult(true, "Bem vindo ao balta Store", new
+            return new CommandResult(true, "Bem vindo.", new
             {
                 Id = customer.Id,
                 Name = name.ToString(),
