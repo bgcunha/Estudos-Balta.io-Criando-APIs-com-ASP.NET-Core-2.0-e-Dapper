@@ -13329,23 +13329,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bruno Gomes\\.nuget\\packages\\": {},
+    "C:\\Users\\bruno.gomes.da.cunha\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\dev\\balta\\Estudos-Balta.io-Criando-APIs-com-ASP.NET-Core-2.0-e-Dapper\\BaltaStore.Api\\BaltaStore.Api.csproj",
+      "projectUniqueName": "C:\\dev\\balta\\BaltaStore\\BaltaStore.Api\\BaltaStore.Api.csproj",
       "projectName": "BaltaStore.Api",
-      "projectPath": "G:\\dev\\balta\\Estudos-Balta.io-Criando-APIs-com-ASP.NET-Core-2.0-e-Dapper\\BaltaStore.Api\\BaltaStore.Api.csproj",
-      "packagesPath": "C:\\Users\\Bruno Gomes\\.nuget\\packages\\",
-      "outputPath": "G:\\dev\\balta\\Estudos-Balta.io-Criando-APIs-com-ASP.NET-Core-2.0-e-Dapper\\BaltaStore.Api\\obj\\",
+      "projectPath": "C:\\dev\\balta\\BaltaStore\\BaltaStore.Api\\BaltaStore.Api.csproj",
+      "packagesPath": "C:\\Users\\bruno.gomes.da.cunha\\.nuget\\packages\\",
+      "outputPath": "C:\\dev\\balta\\BaltaStore\\BaltaStore.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Bruno Gomes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bruno.gomes.da.cunha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13359,11 +13362,11 @@
         "netcoreapp2.0": {
           "targetAlias": "netcoreapp2.0",
           "projectReferences": {
-            "G:\\dev\\balta\\Estudos-Balta.io-Criando-APIs-com-ASP.NET-Core-2.0-e-Dapper\\BaltaStore.Domain\\BaltaStore.Domain.csproj": {
-              "projectPath": "G:\\dev\\balta\\Estudos-Balta.io-Criando-APIs-com-ASP.NET-Core-2.0-e-Dapper\\BaltaStore.Domain\\BaltaStore.Domain.csproj"
+            "C:\\dev\\balta\\BaltaStore\\BaltaStore.Domain\\BaltaStore.Domain.csproj": {
+              "projectPath": "C:\\dev\\balta\\BaltaStore\\BaltaStore.Domain\\BaltaStore.Domain.csproj"
             },
-            "G:\\dev\\balta\\Estudos-Balta.io-Criando-APIs-com-ASP.NET-Core-2.0-e-Dapper\\BaltaStore.Infra\\BaltaStore.Infra.csproj": {
-              "projectPath": "G:\\dev\\balta\\Estudos-Balta.io-Criando-APIs-com-ASP.NET-Core-2.0-e-Dapper\\BaltaStore.Infra\\BaltaStore.Infra.csproj"
+            "C:\\dev\\balta\\BaltaStore\\BaltaStore.Infra\\BaltaStore.Infra.csproj": {
+              "projectPath": "C:\\dev\\balta\\BaltaStore\\BaltaStore.Infra\\BaltaStore.Infra.csproj"
             }
           }
         }
