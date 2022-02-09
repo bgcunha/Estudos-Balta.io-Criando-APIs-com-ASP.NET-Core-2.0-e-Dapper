@@ -22,6 +22,7 @@ namespace BaltaStore.Api.Controllers
 
         [HttpGet]
         [Route("v1/customers")]
+        [ResponseCache(Duration = 15)]
         public IEnumerable<ListCustomerOrdersQueryResult> Get()
         {
             return _repository.Get();
