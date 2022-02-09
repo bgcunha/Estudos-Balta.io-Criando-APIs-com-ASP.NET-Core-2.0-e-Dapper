@@ -1,5 +1,6 @@
 ﻿using BaltaStore.Domain.StoreContext.Commands.CustomerCommands.Inputs;
 using BaltaStore.Domain.StoreContext.Entities;
+using BaltaStore.Domain.StoreContext.Handlers;
 using BaltaStore.Domain.StoreContext.Queries;
 using BaltaStore.Domain.StoreContext.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -11,10 +12,12 @@ namespace BaltaStore.Api.Controllers
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerRepository _repository;
+        private readonly CustomerHandler _handler;
 
-        public CustomerController(ICustomerRepository repository)
+        public CustomerController(ICustomerRepository repository, CustomerHandler handler)
         {
             _repository = repository;
+            _handler = handler;
         }
 
         [HttpGet]
@@ -38,12 +41,16 @@ namespace BaltaStore.Api.Controllers
             return _repository.GetOrders(id);
         }
 
-
         [HttpPost]
         [Route("customers")]
-        public Customer Post([FromBody]CreateCustomerCommand command)
+        public object Post([FromBody]CreateCustomerCommand command)
         {
-            return null;
+            var result = (CreateCustomerCommand)_handler.Handle(command);
+
+            if(_handler.IsValid)
+                return result;
+
+            return BadRequest(_handler.Notifications);
         }
 
         [HttpPut]
