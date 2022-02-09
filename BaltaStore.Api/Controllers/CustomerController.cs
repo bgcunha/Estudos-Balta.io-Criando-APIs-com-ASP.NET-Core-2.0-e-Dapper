@@ -1,5 +1,7 @@
-﻿using BaltaStore.Domain.StoreContext.Commands.CustomerCommands.Inputs;
+﻿using BaltaStore.Domain.Queries;
+using BaltaStore.Domain.StoreContext.Commands.CustomerCommands.Inputs;
 using BaltaStore.Domain.StoreContext.Entities;
+using BaltaStore.Domain.StoreContext.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,25 +10,32 @@ namespace BaltaStore.Api.Controllers
 {    
     public class CustomerController : ControllerBase
     {
+        private readonly ICustomerRepository _repository;
+
+        public CustomerController(ICustomerRepository repository)
+        {
+            _repository = repository;
+        }
+
         [HttpGet]
         [Route("customers")]
-        public List<Customer> Get()
+        public IEnumerable<ListCustomerOrdersQueryResult> Get()
         {
-            return null;
+            return _repository.Get();
         }
 
         [HttpGet]
         [Route("customers/{id:Guid}")]
-        public Customer GetById(Guid id)
+        public GetCustomerQueryResult GetById(Guid id)
         {
-            return null;
+            return _repository.Get(id);
         }
 
         [HttpGet]
         [Route("customers/{id:Guid}/orders")]
-        public List<Order> GetOrders(Guid id)
+        public IEnumerable<ListCustomerOrdersQueryResult> GetOrders(Guid id)
         {
-            return null;
+            return _repository.GetOrders(id);
         }
 
 

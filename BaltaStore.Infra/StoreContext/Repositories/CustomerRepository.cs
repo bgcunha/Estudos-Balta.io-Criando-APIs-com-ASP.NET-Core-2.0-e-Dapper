@@ -1,5 +1,8 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using BaltaStore.Domain.Queries;
 using BaltaStore.Domain.StoreContext.Entities;
 using BaltaStore.Domain.StoreContext.Repositories;
 using BaltaStore.Infra.StoreContext.DataContexts;
@@ -72,24 +75,22 @@ namespace BaltaStore.Infra.StoreContext.Repositories
             }
         }
 
-        //public IEnumerable<ListCustomerQueryResult> Get()
-        //{
-        //    return
-        //        _context
-        //        .Connection
-        //        .Query<ListCustomerQueryResult>("SELECT [Id], CONCAT([FirstName], ' ', [LastName]) AS [Name], [Document], [Email] FROM [Customer]", new { });
-        //}
+        public IEnumerable<ListCustomerOrdersQueryResult> Get()
+        {
+            return
+                _context
+                .Connection
+                .Query<ListCustomerOrdersQueryResult>("SELECT [Id], CONCAT([FirstName], ' ', [LastName]) AS [Name], [Document], [Email] FROM [Customer]", new { });
+        }
 
-
-
-        //public GetCustomerQueryResult Get(Guid id)
-        //{
-        //    return
-        //        _context
-        //        .Connection
-        //        .Query<GetCustomerQueryResult>("SELECT [Id], CONCAT([FirstName], ' ', [LastName]) AS [Name], [Document], [Email] FROM [Customer] WHERE [Id]=@id", new { id = id })
-        //        .FirstOrDefault();
-        //}
+        public GetCustomerQueryResult Get(Guid id)
+        {
+            return
+                _context
+                .Connection
+                .Query<GetCustomerQueryResult>("SELECT [Id], CONCAT([FirstName], ' ', [LastName]) AS [Name], [Document], [Email] FROM [Customer] WHERE [Id]=@id", new { id = id })
+                .FirstOrDefault();
+        }
 
         public CustomerOrdersCountResult GetCustomerOrdersCount(string document)
         {
@@ -102,13 +103,14 @@ namespace BaltaStore.Infra.StoreContext.Repositories
                 .FirstOrDefault();
         }
 
-        //public IEnumerable<ListCustomerOrdersQueryResult> GetOrders(Guid id)
-        //{
-        //    return
-        //        _context
-        //        .Connection
-        //        .Query<ListCustomerOrdersQueryResult>("", new { id = id });
-        //}
+        public IEnumerable<ListCustomerOrdersQueryResult> GetOrders(Guid id)
+        {
+            // TODO - Fazer a query das orders
+            return
+                _context
+                .Connection
+                .Query<ListCustomerOrdersQueryResult>("", new { id = id });
+        }
 
 
     }
