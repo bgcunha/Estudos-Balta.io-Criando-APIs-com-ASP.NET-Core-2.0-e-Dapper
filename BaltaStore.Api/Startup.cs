@@ -4,19 +4,28 @@ using BaltaStore.Domain.StoreContext.Services;
 using BaltaStore.Infra.Services;
 using BaltaStore.Infra.StoreContext.DataContexts;
 using BaltaStore.Infra.StoreContext.Repositories;
+using BaltaStore.Shared;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
+using System.IO;
 
 namespace BaltaStore.Api
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public static IConfiguration Configuration { get; set; }
         public void ConfigureServices(IServiceCollection services)
         {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+
+            Configuration = builder.Build();
+
+            services.AddApplicationInsightsTelemetry(Configuration);
             services.AddMvc();
 
             services.AddResponseCompression();
@@ -48,6 +57,8 @@ namespace BaltaStore.Api
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Store - V1");
             });
+
+            Settings.ConnectionString = $"{Configuration["connectionString"]}";
         }
     }
 }
